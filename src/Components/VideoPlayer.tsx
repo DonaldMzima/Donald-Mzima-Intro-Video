@@ -7,6 +7,82 @@ import {
   FaEnvelope,
   FaPhone,
 } from "react-icons/fa";
+import styled from "styled-components";
+
+// Styled components
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: relative;
+`;
+
+const Navbar = styled.nav`
+  background-color: #2d3748;
+  padding: 1rem;
+  color: #ffffff;
+  text-align: center;
+`;
+
+const VideoPlayerContainer = styled.div`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
+const VideoWrapper = styled.div`
+  width: 100%;
+  max-width: 48rem;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+`;
+
+const DownloadButton = styled.button`
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    background-color: #2563eb;
+  }
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #3b82f6;
+  }
+`;
+
+const Footer = styled.footer`
+  background-color: #2d3748;
+  padding: 1rem;
+  color: #ffffff;
+  text-align: center;
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+`;
+
+const SocialLink = styled.a`
+  color: #ffffff;
+  &:hover {
+    color: #e5e7eb;
+  }
+`;
+
+const ContactInfo = styled.div`
+  margin-top: 0.5rem;
+`;
 
 const VideoPlayer: React.FC = () => {
   const videoUrl = "/DonandMzima.mov"; // Correct path to your video file
@@ -21,80 +97,70 @@ const VideoPlayer: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col h-screen">
+    <Container>
       {/* Navbar */}
-      <nav className="bg-gray-800 p-4 text-white text-center">
+      <Navbar>
         <h1 className="text-xl font-semibold">
           Donald Mzima's Video Intro for Trigify.io
         </h1>
-      </nav>
+      </Navbar>
 
       {/* Video Player Container */}
-      <div className="flex-grow flex items-center justify-center">
-        <div className="relative w-full max-w-3xl">
+      <VideoPlayerContainer>
+        <VideoWrapper>
           <ReactPlayer
             url={videoUrl}
             playing
             controls
             width="100%"
             height="auto"
-            className="rounded-lg overflow-hidden"
           />
           {/* Download Button on Top of Video */}
-          <button
-            onClick={handleDownload}
-            className="absolute top-3 left-3 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 z-10"
-          >
+          <DownloadButton onClick={handleDownload}>
             Download Video
-          </button>
-        </div>
-      </div>
+          </DownloadButton>
+        </VideoWrapper>
+      </VideoPlayerContainer>
 
       {/* Footer */}
-      <footer className="bg-gray-800 p-4 text-white">
-        <div className="flex flex-col items-center">
+      <Footer>
+        <div>
           {/* Social Links */}
-          <div className="flex space-x-4 mb-2">
-            <a
+          <SocialLinks>
+            <SocialLink
               href="https://github.com/DonaldMzima"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-400"
             >
               <FaGithub size={24} />
-            </a>
-            <a
+            </SocialLink>
+            <SocialLink
               href="https://www.linkedin.com/in/donald-mzima-8557a3231/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-400"
             >
               <FaLinkedin size={24} />
-            </a>
-            <a
+            </SocialLink>
+            <SocialLink
               href="https://donald-portfolio-beta.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-gray-400"
             >
               <FaGlobe size={24} />
-            </a>
-            <a
-              href="mailto:donaldmzima8@gmail.com"
-              className="hover:text-gray-400"
-            >
+            </SocialLink>
+            <SocialLink href="mailto:donaldmzima8@gmail.com">
               <FaEnvelope size={24} />
-            </a>
-            <a href="tel:+27789941731" className="hover:text-gray-400">
+            </SocialLink>
+            <SocialLink href="tel:+27789941731">
               <FaPhone size={24} />
-            </a>
-          </div>
+            </SocialLink>
+          </SocialLinks>
 
           {/* Developed By Text */}
-          <p className="text-center">Developed by Donald Mzima</p>
+          <p>Developed by Donald Mzima</p>
 
           {/* Contact Info */}
-          <div className="mt-2">
+          <ContactInfo>
             <p>
               Email:{" "}
               <a
@@ -110,12 +176,11 @@ const VideoPlayer: React.FC = () => {
                 +27789941731
               </a>
             </p>
-          </div>
+          </ContactInfo>
         </div>
-      </footer>
-    </div>
+      </Footer>
+    </Container>
   );
 };
 
 export default VideoPlayer;
-0;
