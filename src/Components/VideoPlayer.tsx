@@ -85,7 +85,7 @@ const ContactInfo = styled.div`
 `;
 
 const VideoPlayer: React.FC = () => {
-  const videoUrl = "/DonandMzima.mov"; // Correct path to your video file
+  const videoUrl = "/"; // Correct path to your video file
 
   const handleDownload = () => {
     const link = document.createElement("a");
