@@ -1,13 +1,13 @@
-import React from "react";
-import ReactPlayer from "react-player";
+import React from 'react'
+import ReactPlayer from 'react-player'
 import {
   FaGithub,
   FaLinkedin,
   FaGlobe,
   FaEnvelope,
   FaPhone,
-} from "react-icons/fa";
-import styled from "styled-components";
+} from 'react-icons/fa'
+import styled from 'styled-components'
 
 // Styled components
 const Container = styled.div`
@@ -15,14 +15,14 @@ const Container = styled.div`
   flex-direction: column;
   height: 100vh;
   position: relative;
-`;
+`
 
 const Navbar = styled.nav`
   background-color: #2d3748;
   padding: 1rem;
   color: #ffffff;
   text-align: center;
-`;
+`
 
 const VideoPlayerContainer = styled.div`
   flex-grow: 1;
@@ -30,7 +30,7 @@ const VideoPlayerContainer = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-`;
+`
 
 const VideoWrapper = styled.div`
   width: 100%;
@@ -38,7 +38,7 @@ const VideoWrapper = styled.div`
   position: relative;
   border-radius: 0.5rem;
   overflow: hidden;
-`;
+`
 
 const DownloadButton = styled.button`
   position: absolute;
@@ -57,55 +57,53 @@ const DownloadButton = styled.button`
     outline: none;
     box-shadow: 0 0 0 2px #3b82f6;
   }
-`;
+`
 
 const Footer = styled.footer`
   background-color: #2d3748;
   padding: 1rem;
   color: #ffffff;
   text-align: center;
-`;
+`
 
 const SocialLinks = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
-`;
+`
 
 const SocialLink = styled.a`
   color: #ffffff;
   &:hover {
     color: #e5e7eb;
   }
-`;
+`
 
 const ContactInfo = styled.div`
   margin-top: 0.5rem;
-`;
+`
 
 const VideoPlayer: React.FC = () => {
-  const videoUrl = "/"; // Correct path to your video file
+  const videoUrl = '/DonaldMzima .mp4'
 
   const handleDownload = () => {
-    const link = document.createElement("a");
-    link.href = videoUrl;
-    link.download = "video.mp4";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+    const link = document.createElement('a')
+    link.href = videoUrl
+    link.download = 'video.mp4'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   return (
     <Container>
-      {/* Navbar */}
       <Navbar>
         <h1 className="text-xl font-semibold">
           Donald Mzima's Video Intro for Trigify.io
         </h1>
       </Navbar>
 
-      {/* Video Player Container */}
       <VideoPlayerContainer>
         <VideoWrapper>
           <ReactPlayer
@@ -115,17 +113,14 @@ const VideoPlayer: React.FC = () => {
             width="100%"
             height="auto"
           />
-          {/* Download Button on Top of Video */}
           <DownloadButton onClick={handleDownload}>
             Download Video
           </DownloadButton>
         </VideoWrapper>
       </VideoPlayerContainer>
 
-      {/* Footer */}
       <Footer>
         <div>
-          {/* Social Links */}
           <SocialLinks>
             <SocialLink
               href="https://github.com/DonaldMzima"
@@ -162,7 +157,7 @@ const VideoPlayer: React.FC = () => {
           {/* Contact Info */}
           <ContactInfo>
             <p>
-              Email:{" "}
+              Email:{' '}
               <a
                 href="mailto:donaldmzima8@gmail.com"
                 className="hover:underline"
@@ -171,7 +166,7 @@ const VideoPlayer: React.FC = () => {
               </a>
             </p>
             <p>
-              Phone:{" "}
+              Phone:{' '}
               <a href="tel:+27789941731" className="hover:underline">
                 +27789941731
               </a>
@@ -180,7 +175,7 @@ const VideoPlayer: React.FC = () => {
         </div>
       </Footer>
     </Container>
-  );
-};
+  )
+}
 
-export default VideoPlayer;
+export default VideoPlayer
